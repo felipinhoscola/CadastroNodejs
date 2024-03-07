@@ -1,1 +1,16 @@
-<h1>Pagina Teste</h1>
+<%- include('../layout/head', {title: 'Página Inicial' }) %>
+
+    <%- include('../layout/nav') %>
+        <div class="has-background-dark">
+            <div class="hero is-fullheight is-bold is-centered">
+                <div class="hero-body">
+                    <div class="container has-text-centered">
+                        <h1 class="title is-4 has-text-white">Acesse a tabela de cadastro dos funcionários</h1>
+                        <a href="/person" class="button is-white is-large is-outlined">Acessar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <%- include('../layout/footer') %>
