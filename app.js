@@ -14,7 +14,7 @@ app.set('views', path.join(__dirname, 'src/views'))
 app.set('view engine', 'ejs');
 
 app.use('/', rootRouter)
-app.use('/person', personRouter)
+app.use('/persons', personRouter)
 
 app.listen(3000, () => {
     console.log('Servidor Foi Iniciado')

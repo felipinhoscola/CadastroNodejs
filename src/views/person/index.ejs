@@ -1,0 +1,52 @@
+<%- include('../layout/head', {title: 'Lista De Funcionários' }) %>
+
+    <%- include('../layout/nav') %>
+        <div class="has-background-dark" style="height: 91.5vh;">
+            <section class="section">
+                <div class="container">
+                    <div class="columns is-centered">
+                        <div class="column is-half">
+                            <div class="table-container">
+                                <table class="table is-bordered is-striped is-fullwidth is-hoverable is-narrow">
+                                    <thead>
+                                        <tr class="has-background-dark">
+                                            <th class="has-text-white">Nome</th>
+                                            <th class="has-text-white">Email</th>
+                                            <th class="has-text-white">Telefone</th>
+                                            <th class="has-text-white">Tarefas</th>
+                                            <th class="has-text-white">Opções</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% persons.forEach(p=>{%><tr>
+                                                <td>
+                                                    <%=p.name %>
+                                                </td>
+                                                <td>
+                                                    <%=p.email %>
+                                                </td>
+                                                <td>
+                                                    <%=p.tel %>
+                                                </td>
+                                                <td>
+                                                    <a href="#" class="button is-primary is-small">
+                                                        <%=p.tasks.length%>
+                                                    </a>
+                                                </td>
+                                                <td>
+                                                    <a class="button is-primary is-small" href="">Editar</a>
+                                                    <a class="button is-danger is-small">Excluir</a>
+                                                </td>
+                                            </tr>
+                                            <!-- Adicione mais linhas conforme necessário -->
+                                            <% }) %>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <%- include('../layout/footer') %>

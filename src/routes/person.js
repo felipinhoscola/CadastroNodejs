@@ -1,14 +1,18 @@
 const express = require('express');
 const Person = require('../models/person');
+const Task = require('../models/task');
 const router = express.Router();
 
 
 router.get('/', async (req, res) => {
     try {
-        let person = await Person.find();
-        res.status(200).json(person);
+        let person = await Person.find().populate('tasks');
+        //res.status(200).json(person);
+        console.log(person)
+        res.status(200).render('person/index', { persons: person });
     } catch (error) {
-        res.status(500).json(error)
+        console.log(error.message)
+        res.status(400).render('pages/error', { error: error.message });
     }
 })
 
@@ -26,9 +30,10 @@ router.post('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         let person = await Person.findById(req.params.id);
-        res.status(200).json(person);
+        //res.status(200).json(person);
+        res.status(200).render('person/index', { person: person });
     } catch (error) {
-        res.status(422).json(error)
+        res.status(200).render('pages/error', { error: 'Erro ao buscar id no banco de dados' });
     }
 })
 
