@@ -1,0 +1,11 @@
+<%- include('../layout/head', {title: 'Editar Cadastro' }) %>
+
+    <%- include('../layout/nav') %>
+        <section class="section">
+            <div class="container">
+                <h1 class="title size-4">Atualização De Cadastro</h1>
+
+                <%- include('form', {url: `/persons/${person.id}/?_method=put` , person: person })%>
+            </div>
+        </section>
+        <%- include('../layout/footer') %>

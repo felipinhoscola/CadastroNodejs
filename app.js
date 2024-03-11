@@ -1,13 +1,17 @@
 const express = require('express');
 const path = require('path');
+const methodOverride = require('method-override');
 
 const personRouter = require('./src/routes/person');
 const rootRouter = require('./src/routes/index');
+
 
 require('./config/database')
 
 const app = express();
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride('_method')); // for PUT and DELETE methods
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'src/views'))

@@ -1,13 +1,21 @@
 <%- include('../layout/head', {title: 'Lista De Funcionários' }) %>
 
     <%- include('../layout/nav') %>
-        <div class="has-background-dark" style="height: 91.5vh;">
+
+        <div>
             <section class="section">
                 <div class="container">
                     <div class="columns is-centered">
-                        <div class="column is-half">
+                        <div class="column">
+                            <div class="buttons is-centered">
+                                <a href="/persons/new" class="button is-primary is-medium">Novo Cadastro</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="columns is-centered">
+                        <div class="column">
                             <div class="table-container">
-                                <table class="table is-bordered is-striped is-fullwidth is-hoverable is-narrow">
+                                <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
                                     <thead>
                                         <tr class="has-background-dark">
                                             <th class="has-text-white">Nome</th>
@@ -28,17 +36,18 @@
                                                 <td>
                                                     <%=p.tel %>
                                                 </td>
-                                                <td>
-                                                    <a href="#" class="button is-primary is-small">
+                                                <td class="has-text-centered">
+                                                    <a href="/persons/<%= p._id %>" class="button is-primary is-small">
                                                         <%=p.tasks.length%>
                                                     </a>
                                                 </td>
-                                                <td>
-                                                    <a class="button is-primary is-small" href="">Editar</a>
+                                                <td class="has-text-centered">
+                                                    <a class="button is-primary is-small"
+                                                        href="/persons/<%= p._id%>/edit">Editar</a>
                                                     <a class="button is-danger is-small">Excluir</a>
                                                 </td>
                                             </tr>
-                                            <!-- Adicione mais linhas conforme necessário -->
+
                                             <% }) %>
                                     </tbody>
                                 </table>
@@ -47,6 +56,6 @@
                     </div>
                 </div>
             </section>
-
         </div>
+
         <%- include('../layout/footer') %>

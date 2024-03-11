@@ -1,0 +1,11 @@
+<%- include('../layout/head', {title: 'Página Inicial' }) %>
+
+    <%- include('../layout/nav') %>
+        <section class="section">
+            <div class="container">
+                <h1 class="title size-4">Novo Cadastro</h1>
+
+                <%- include('form', {url: '/persons?_method=post' , person: person })%>
+            </div>
+        </section>
+        <%- include('../layout/footer') %>

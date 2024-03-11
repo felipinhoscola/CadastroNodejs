@@ -1,0 +1,44 @@
+<form method="post" action="<%= url %>">
+    <input type="hidden" name="id" value="<%= person._id %>">
+    <div class="field">
+        <label class="label">Nome</label>
+        <div class="control">
+            <input class="input" type="text" name="person[name]" placeholder="Jhon Doe" value="<%= person.name %>">
+            <% if(person.error && person.error.hasOwnProperty( 'name' )) { %>
+                <p class="is-danger help">
+                    <%= person.error.name.message %>
+                </p>
+                <% } %>
+
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">E-mail</label>
+        <div class="control">
+            <input class="input" type="email" name="person[email]" placeholder="example@example.com"
+                value="<%= person.email %>">
+            <% if(person.erros && person.errors.hasOwnProperty( 'email' )) { %>
+                <p class="is-danger help">
+                    <%= person.error.email.message %>
+                </p>
+                <% } %>
+        </div>
+    </div>
+
+    <div class="field">
+        <label class="label">Telefone</label>
+        <div class="control">
+            <input class="input" type="tel" name="person[tel]" placeholder="(xx) xxxxx-xxxx"
+                value="<%= person.email %>">
+            <% if(person.erros && person.errors.hasOwnProperty( 'tel' )) { %>
+                <p class="is-danger help">
+                    <%= person.error.tel.message %>
+                </p>
+                <% } %>
+        </div>
+    </div>
+
+    <button type="submit" class="button is-success">Salvar</button>
+    <a href="/persons" class="button">Cancelar</a>
+</form>
