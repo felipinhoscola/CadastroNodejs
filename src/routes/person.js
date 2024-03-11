@@ -60,7 +60,7 @@ router.put('/:id', async (req, res) => {
     let person = await Person.findById(req.params.id)
 
     try {
-        await person.update({ name, email, tel });//erro aqui
+        await person.updateOne({ name, email, tel });//erro aqui
         res.redirect('/persons')
     } catch (error) {
         let errors = error.errors;
