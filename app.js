@@ -3,6 +3,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 
 const personRouter = require('./src/routes/person');
+const taskRouter = require('./src/routes/task');
 const rootRouter = require('./src/routes/index');
 
 
@@ -19,6 +20,7 @@ app.set('view engine', 'ejs');
 
 app.use('/', rootRouter)
 app.use('/persons', personRouter)
+app.use('/persons', taskRouter.personDependent)
 
 app.listen(3000, () => {
     console.log('Servidor Foi Iniciado')

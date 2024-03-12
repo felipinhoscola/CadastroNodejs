@@ -1,0 +1,26 @@
+<%- include('../layout/head', {title: 'Editar Cadastro' }) %>
+
+    <%- include('../layout/nav') %>
+        <section class="section">
+            <div class="container">
+                <h1 class="title size-4">Nova tarefa</h1>
+
+                <form method="post" action="/persons/<%= personId %>/tasks">
+                    <div class="field">
+                        <label class="label">Nome</label>
+                        <div class="control">
+                            <input class="input" type="text" name="task[name]" placeholder="Tarefa">
+                            <% if(task.error && task.error.hasOwnProperty( 'name' )) { %>
+                                <p class="is-danger help">
+                                    <%= task.error.name.message %>
+                                </p>
+                                <% } %>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="button is-success">Salvar</button>
+                    <a href="/persons/<%= personId %>" class="button">Cancelar</a>
+                </form>
+            </div>
+        </section>
+        <%- include('../layout/footer') %>

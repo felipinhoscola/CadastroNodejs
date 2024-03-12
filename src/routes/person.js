@@ -1,7 +1,5 @@
 const express = require('express');
 const Person = require('../models/person');
-const Task = require('../models/task');
-const person = require('../models/person');
 const router = express.Router();
 
 
@@ -47,7 +45,7 @@ router.post('/', async (req, res) => {
 
 router.get('/:id', async (req, res) => {
     try {
-        let person = await Person.findById(req.params.id);
+        let person = await Person.findById(req.params.id).populate('tasks');
         //res.status(200).json(person);
         res.status(200).render('person/show', { person: person });
     } catch (error) {
