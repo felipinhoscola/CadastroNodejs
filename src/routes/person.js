@@ -70,13 +70,12 @@ router.put('/:id', async (req, res) => {
 })
 
 router.delete('/:id', async (req, res) => {
-    let { name, email, tel } = req.body;
-
     try {
-        let person = await Person.findByIdAndRemove(req.params.id);
-        res.status(200).json(person);
+        await Person.findByIdAndDelete(req.params.id);
+        res.redirect('/persons')
     } catch (error) {
-        res.status(422).json(error)
+        console.log(error);
+        res.status(500).render('pages/error', { error: 'Erro ao deletar cadastro!' });
     }
 })
 

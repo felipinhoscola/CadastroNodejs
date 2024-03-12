@@ -11,7 +11,7 @@ require('./config/database')
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(methodOverride('_method')); // for PUT and DELETE methods
+app.use(methodOverride('_method', { methods: ['POST', 'GET'] })); // for PUT and DELETE methods
 
 app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'src/views'))
