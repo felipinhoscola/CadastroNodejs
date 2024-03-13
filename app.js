@@ -21,6 +21,7 @@ app.set('view engine', 'ejs');
 app.use('/', rootRouter)
 app.use('/persons', personRouter)
 app.use('/persons', taskRouter.personDependent)
+app.use('/tasks', taskRouter.simple)
 
 app.listen(3000, () => {
     console.log('Servidor Foi Iniciado')
